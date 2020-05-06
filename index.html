@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en_EN" class="no-js">
+<head>
+<script>
+    var getFirstBrowserLanguage = function () {
+    var nav = window.navigator,
+    browserLanguagePropertyKeys = ['language', 'browserLanguage', 'systemLanguage', 'userLanguage'], i, language;
+    // support for HTML 5.1 "navigator.languages"
+    if (Array.isArray(nav.languages)) {
+      for (i = 0; i < nav.languages.length; i++) {
+        language = nav.languages[i];
+        if (language && language.length)
+          return language;
+      }
+    }
+    // support for other well known properties in browsers
+    for (i = 0; i < browserLanguagePropertyKeys.length; i++) {
+      language = nav[browserLanguagePropertyKeys[i]];
+      if (language && language.length)
+        return language;
+    }
+    return null;
+    };
+
+    var lang = getFirstBrowserLanguage();
+    if(lang=="pt" || lang=="PT" || lang=="pt-PT" || lang=="br" || lang=="BR" || lang=="pt-BR")
+        lang = "pt";
+    else
+        lang = "en";
+
+    if(location.search.indexOf('l=')<=0)
+      window.location.href = './' + lang + '/';
+  </script>
+</head>
+</html>
