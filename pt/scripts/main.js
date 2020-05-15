@@ -1078,7 +1078,7 @@ https://github.com/imakewebthings/waypoints/blog/master/licenses.txt
 
     // Cache selectors
     var lastId,
-        topMenu = $(".menu__content li"),
+        topMenu = $(".main__menu"),
         topMenuHeight = topMenu.outerHeight(),
         // All list items
         menuItems = topMenu.find("a"),
